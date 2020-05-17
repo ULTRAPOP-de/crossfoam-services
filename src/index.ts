@@ -11,7 +11,10 @@ const identifyService = (url: string): [string, string] => {
   Object.keys(services).forEach((service) => {
     const match = url.match(services[service].config.regex);
     if (match !== null) {
-      found = [service, match[1]];
+      const excludeMatch = url.match(services[service].config.regex_exclude);
+      if (excludeMatch === null) {
+        found = [service, match[1]];
+      }
     }
   });
 
