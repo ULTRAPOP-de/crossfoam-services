@@ -7,7 +7,6 @@ const services = {
 
 const identifyService = (url: string): [string, string] => {
   let found = null;
-
   Object.keys(services).forEach((service) => {
     const match = url.match(services[service].config.regex);
     if (match !== null) {

@@ -12,7 +12,10 @@ var identifyService = function (url) {
     Object.keys(services).forEach(function (service) {
         var match = url.match(services[service].config.regex);
         if (match !== null) {
-            found = [service, match[1]];
+            var excludeMatch = url.match(services[service].config.regex_exclude);
+            if (excludeMatch === null) {
+                found = [service, match[1]];
+            }
         }
     });
     return found;
