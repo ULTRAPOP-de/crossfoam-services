@@ -48,9 +48,11 @@ const getScrapes = (): Promise<any> => {
               completeCount: screenNameNetworkData[scrapeID].completeCount,
               completed: screenNameNetworkData[scrapeID].completed,
               date: screenNameNetworkData[scrapeID].date,
+              nodeCount: screenNameNetworkData[scrapeID].nodeCount,
               nUuid: scrapeID,
               screenName: screenNamesList[serviceID][screenNameID],
               service: Object.keys(services)[serviceID],
+              state: screenNameNetworkData[scrapeID].state,
             });
           });
         });
